@@ -31,8 +31,8 @@ class RotateFragment : Fragment() {
         val animation:ObjectAnimator=ObjectAnimator.ofFloat(binding.imageView,"rotation",0f,0f).apply { duration=500 }
         binding.imageView.setOnClickListener {
             if (!animation.isRunning){
-               animation.setFloatValues(binding.imageView.rotation,binding.imageView.rotation+100)
-               viewModel.rotationPosition=binding.imageView.rotation+100
+               animation.setFloatValues(binding.imageView.rotation,binding.imageView.rotation+60)
+               viewModel.rotationPosition=binding.imageView.rotation+60
                animation.start()
            }
         }
