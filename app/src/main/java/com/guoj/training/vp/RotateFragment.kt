@@ -27,9 +27,10 @@ class RotateFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(RotateViewModel::class.java)
         binding.imageView.rotation = viewModel.rotationPosition
+        //apply使用场景：对象实例初始化时需要对对象中的多个属性进行赋值 & 返回该对象
         val animation:ObjectAnimator=ObjectAnimator.ofFloat(binding.imageView,"rotation",0f,0f).apply { duration=500 }
-        binding.imageView.setOnClickListener { view: View? ->
-           if (!animation.isRunning){
+        binding.imageView.setOnClickListener {
+            if (!animation.isRunning){
                animation.setFloatValues(binding.imageView.rotation,binding.imageView.rotation+100)
                viewModel.rotationPosition=binding.imageView.rotation+100
                animation.start()

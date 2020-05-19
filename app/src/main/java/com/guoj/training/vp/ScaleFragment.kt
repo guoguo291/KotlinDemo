@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.guoj.training.databinding.FragmentSmileBinding
+import kotlin.random.Random
 
 
 class ScaleFragment : Fragment() {
@@ -31,9 +32,14 @@ class ScaleFragment : Fragment() {
         val objectAnimatorX = ObjectAnimator.ofFloat(binding.imageView, "scaleX", 0f, 1f).apply { duration=500 }
         val objectAnimatorY = ObjectAnimator.ofFloat(binding.imageView, "scaleY", 0f, 1f).apply { duration=500 }
         binding.imageView.setOnClickListener { view: View ->
-            objectAnimatorX.setFloatValues(view.scaleX,view.scaleX+0.1f)
-            objectAnimatorY.setFloatValues(view.scaleY,view.scaleY+0.1f)
-            viewModel.scaleFactor+=0.1f
+            if (Random.nextBoolean()){
+                objectAnimatorX.setFloatValues(view.scaleX,view.scaleX+0.2f)
+                objectAnimatorY.setFloatValues(view.scaleY,view.scaleY+0.2f)
+            }else{
+                objectAnimatorX.setFloatValues(view.scaleX,view.scaleX-0.2f)
+                objectAnimatorY.setFloatValues(view.scaleY,view.scaleY-0.2f)
+            }
+            viewModel.scaleFactor+=0.2f
             objectAnimatorX.start()
             objectAnimatorY.start()
         }
