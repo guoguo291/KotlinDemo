@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">KotlinDemo</string>
+    <string name="str_tab_scale">缩放</string>
+    <string name="str_tab_rotate">旋转</string>
+    <string name="str_tab_translation">平移</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
